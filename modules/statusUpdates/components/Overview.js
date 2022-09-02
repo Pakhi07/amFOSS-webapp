@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import Cookies from 'universal-cookie';
 
 // antd components
 import DatePicker from 'antd/lib/date-picker';
@@ -12,13 +13,14 @@ import StatusGraph from './StatusGraph';
 
 const { RangePicker } = DatePicker;
 const moment = extendMoment(Moment);
+const cookies = new Cookies();
 
 const Overview = () => {
+  const usernamecookie=cookies.get('username');
   const [data, setData] = useState([]);
   const [dailyLogData, setDailyLogData] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
   const [rangeLoaded, setRangeLoaded] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
@@ -51,19 +53,27 @@ const Overview = () => {
         endDate: moment(endDate).format('YYYY-MM-DD'),
       };
       fetchData(variables).then((r) => {
+        r.data.clubStatusUpdate.memberStats.map((item)=> {
+          if (item.user.username === usernamecookie) {
+            // setUserName(item.user.username);
+            // console.log(item.statusCount);
+
+          }
+        });
         setData(r.data.clubStatusUpdate.memberStats);
         setDailyLogData(r.data.clubStatusUpdate.dailyLog);
         setLoaded(true);
       });
     }
   });
-
+ 
   const handleRangeChange = (obj) => {
     if (obj[0] != null && obj[1] != null) {
       setStartDate(obj[0]);
       setEndDate(obj[1]);
       setLoaded(false);
     }
+
   };
 
   return (

@@ -17,13 +17,13 @@ const TrendStatusGraph = ({ isLoaded, data }) => {
   const y2016 = [];
 
   data.map((d) => {
-    if (d.user.admissionYear === 2019) {
+    if (d.user.admissionYear === 2021) {
       x2019.push(d.statusCount);
       y2019.push(d.user.username);
-    } else if (d.user.admissionYear === 2018) {
+    } else if (d.user.admissionYear === 2020) {
       x2018.push(d.statusCount);
       y2018.push(d.user.username);
-    } else if (d.user.admissionYear === 2017) {
+    } else if (d.user.admissionYear === 2019) {
       x2017.push(d.statusCount);
       y2017.push(d.user.username);
     } else {
@@ -31,7 +31,7 @@ const TrendStatusGraph = ({ isLoaded, data }) => {
       y2016.push(d.user.username);
     }
   });
-  const [year, setYear] = useState('2019');
+  const [year, setYear] = useState('2021');
   let graph = {
     data: (canvas) => {
       let ctx = canvas.getContext('2d');
@@ -44,11 +44,11 @@ const TrendStatusGraph = ({ isLoaded, data }) => {
 
       return {
         labels:
-          year === '2019'
+          year === '2021'
             ? y2019
-            : year === '2018'
+            : year === '2020'
             ? y2018
-            : year === '2017'
+            : year === '2019'
             ? y2017
             : y2016,
         datasets: [
@@ -62,11 +62,11 @@ const TrendStatusGraph = ({ isLoaded, data }) => {
             borderDash: [],
             borderDashOffset: 0.0,
             data:
-              year === '2019'
+              year === '2021'
                 ? x2019
-                : year === '2018'
+                : year === '2020'
                 ? x2018
-                : year === '2017'
+                : year === '2019'
                 ? x2017
                 : x2016,
           },
@@ -132,12 +132,12 @@ const TrendStatusGraph = ({ isLoaded, data }) => {
             style={{ width: '100%', height: '4vh' }}
             onChange={(e) => setYear(e.currentTarget.value)}
           >
-            <option value="2019" selected>
-              2019
+            <option value="2021" selected>
+              2021
             </option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
             <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
           </select>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // antd components
 import Card from 'antd/lib/card';
@@ -14,7 +14,7 @@ const { Meta } = Card;
 
 const IndividualReport = (props) => {
   const [data, setData] = useState([]);
-  const [username, setUsername] = useState('');
+  // const [username, setUsername] = useState('');
   const [isLoaded, setLoaded] = useState(false);
 
   const query = `
@@ -48,13 +48,16 @@ const IndividualReport = (props) => {
   const fetchData = async (variables) => dataFetch({ query, variables });
 
   const getMemberUpdates = (username) => {
-    setUsername(username);
+    // setUsername(username);
     const variables = { username };
     fetchData(variables).then((r) => {
+      // console.log(r);
       setData(r.data.getMemberStatusUpdates);
       setLoaded(true);
     });
   };
+
+  console.log(data);
 
   return (
     <Base title="Individual Report | Status Updates " {...props}>
@@ -67,7 +70,7 @@ const IndividualReport = (props) => {
         <div className="col-md-6 p-2">
           <Search
             placeholder="Search Member"
-            onSearch={(value) => getMemberUpdates(value.toLowerCase())}
+            onSearch={(value) => getMemberUpdates(value)}
             style={{ width: 350 }}
             enterButton
           />
@@ -117,4 +120,10 @@ const IndividualReport = (props) => {
   );
 };
 
+
+
 export default IndividualReport;
+
+export const Ov=()=>{
+  <Card>{data.length}</Card>
+};
