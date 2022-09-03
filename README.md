@@ -1,15 +1,5 @@
 #  WebApp
 
-[![pipeline status](https://gitlab.com/amfoss/WebApp/badges/master/pipeline.svg)](https://gitlab.com/amfoss/WebApp/-/commits/master)
-
-Webapp for FOSS@Amrita
-
-#### NPM Commands
-* ```npm install``` - install all node modules (dependencies) to run the app
-* ``npm run dev`` - runs the app in development mode in port 3000
-* ```npm run build``` - builds the app for production
-
-#### Tech Stack
-* Next / React / JSX / SASS 
-* **Linting & Quality:** ESlint (ESlin Airbnb Config), Prettier
-* **UI Library:**  Ant Design
+### Dashboard screenshot
+![Screenshot (1016)](https://user-images.githubusercontent.com/92666755/188273280-05e0c697-9467-46a0-aa09-cbfc48edad4d.png)
+![Screenshot (1015)](https://user-images.githubusercontent.com/92666755/188273285-de8d5ebb-506a-4f43-99d6-cbc96b05d39b.png)
