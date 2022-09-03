@@ -126,12 +126,8 @@ const Overview2 = () => {
         </div>
       </div>
       <div className="row m-0">   
-          <div class="flex-container"
-               style={{ display:'flex' }}>
-               <div class="flex-child magenta"
-                    style={{ flex:1}}>
-                    <div style={{ width:'509px',marginLeft: '28px',marginRight:'30px', boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
-                      <Card>
+        <div className="col-md-7 p-2">
+             <Card style={{ boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
                       <div class="flex-container"
                            style={{ display:'flex', flexBasis: 0 }}>
                           <div class="flex-child yellow"
@@ -150,30 +146,23 @@ const Overview2 = () => {
                               <h7>Updates missed</h7>
                           </div>
                       </div>
-                      </Card>
-                    </div>
-                    <div style={{ width:'509px', marginLeft: '28px', marginTop: '20px', marginRight:'10px', boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
-                        <Card>
-                          <div><p>Number of times updated first:👍</p></div>
-                          <div><p>Number of times updated last:🐌</p></div>
-                          <div><p>Number of times got kicked:☠</p></div>
-                        </Card>
-                    </div>
-                </div>
-        
-                <div class="flex-child green"
-                     style={{ flex:1,}}>
-                     <div className="col-18 p-2"
-                          style={{backgroundColor: '#FFFFFF', boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
+            </Card>
+            <Card style={{ boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)', marginTop: '20px'}}>
+              <div><p>Number of times updated first:👍</p></div>
+              <div><p>Number of times updated last:🐌</p></div>
+              <div><p>Number of times got kicked:☠</p></div>
+            </Card>
+        </div>
+        <div className="col-md-5 p-2">
+             <Card style={{backgroundColor: '#FFFFFF', boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
                            <Doughnut pdata={pieData}/>
-                    </div>
-                </div>
-          </div>
-
-          <div className="col-md p-2"
-               style={{backgroundColor: '#FFFFFF', margin: '28px', boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
+             </Card>
+        </div>
+        <div className="col-md-12 p-2">
+               <Card style={{backgroundColor: '#FFFFFF', boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.25)'}}>
                   <Statsdash data={data} isLoaded={true} />
-          </div>
+                </Card>
+        </div>
       </div>
     </div>
   );
